@@ -6,12 +6,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
+import android.widget.Adapter;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-public class Menu extends AppCompatActivity {
+public class Menu extends FragmentActivity {
 
     private BottomNavigationView mMainNav;
     private FrameLayout mMainFrame;
@@ -20,7 +24,9 @@ public class Menu extends AppCompatActivity {
     private Schedule_Fragment scheduleFragment;
     private Search_Fragment searchFragment;
     private Workout_Fragment workoutFragment;
+    private Gym_Fragment gymFragment;
 
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +40,11 @@ public class Menu extends AppCompatActivity {
         scheduleFragment = new Schedule_Fragment();
         searchFragment = new Search_Fragment();
         workoutFragment = new Workout_Fragment();
+        gymFragment = new Gym_Fragment();
+        //recyclerView = (RecyclerView) findViewById(R.id.fragment_workout);
+        //recyclerView.setLayoutManager (new LinearLayoutManager((this));
+        //recyclerView.setAdapter(new RecyclerViewAdapter(this));
+
 
         setFragment(profileFragment);
 
@@ -62,6 +73,11 @@ public class Menu extends AppCompatActivity {
                         setFragment(searchFragment);
                         return true;
 
+                    case R.id.nav_Map:
+                        mMainNav.setItemBackgroundResource(R.color.colorPrimaryDark);
+                        setFragment(gymFragment);
+                        return true;
+
                         default:
                             return false;
                 }
@@ -73,6 +89,6 @@ public class Menu extends AppCompatActivity {
         android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.profile_frame, fragment);
         fragmentTransaction.commit();
-
     }
+
 }
