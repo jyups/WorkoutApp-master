@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Workout_Fragment extends Fragment {
+public class Workout_Fragment extends Menu{
 
     public Workout_Fragment() {
         // Required empty public constructor

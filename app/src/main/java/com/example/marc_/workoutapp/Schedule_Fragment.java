@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Schedule_Fragment extends Fragment {
+public class Schedule_Fragment extends Menu {
 
 
     public Schedule_Fragment() {

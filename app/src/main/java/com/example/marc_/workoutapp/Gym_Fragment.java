@@ -20,7 +20,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Gym_Fragment extends Fragment implements OnMapReadyCallback{
+public class Gym_Fragment extends Menu{
 
     GoogleMap map;
     SupportMapFragment mapFragment;
