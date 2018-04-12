@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Schedule_Fragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:id="@+id/monday"
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/monday"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:visibility="visible"
+        tools:background="#cb7ff1"
+        tools:text="Monday" />
+
+    <TextView
+        android:id="@+id/tuesday"
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/monday"
+        android:text="@string/tuesday"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        tools:background="#83e2f5"
+        tools:text="Tuesday" />
+
+    <TextView
+        android:id="@+id/wednesday"
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tuesday"
+        android:text="@string/Wednesday"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        tools:background="#81f4a0"
+        tools:text="Wednesday" />
+
+    <TextView
+        android:id="@+id/thursday"
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:text="@string/thursday"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        tools:background="#fe6d9d"
+        tools:text="Thursday" />
+
+    <TextView
+        android:id="@+id/friday"
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:layout_above="@+id/saturday"
+        android:layout_alignParentStart="true"
+        android:text="@string/friday"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        tools:background="#f7f980"
+        tools:text="Friday" />
+
+    <TextView
+        android:id="@+id/saturday"
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:layout_above="@+id/sunday"
+        android:layout_alignParentStart="true"
+        android:text="@string/saturday"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        tools:background="#ff83e4"
+        tools:text="Saturday" />
+
+    <TextView
+        android:id="@+id/sunday"
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:text="@string/sunday"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        tools:background="#889aff"
+        tools:text="Sunday" />
+
+    <Button
+        android:id="@+id/monday_add"
+        android:layout_width="59dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="11dp"
+        android:layout_marginTop="12dp"
+        android:text="+"
+        android:textSize="36sp"
+        tools:background="#8d29e5"
+        tools:textSize="30sp" />
+
+</RelativeLayout>
