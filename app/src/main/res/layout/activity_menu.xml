@@ -1,84 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:elevation="10dp"
-        android:id="@+id/bottomNavBar"
-        android:paddingTop="5dp"
-        android:orientation="horizontal"
+    android:layout_height="match_parent"
+    tools:context=".Menu">
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/nav_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:foregroundGravity="bottom"
-        xmlns:android="http://schemas.android.com/apk/res/android">
+        android:layout_alignParentStart="true"
+        app:itemBackground="@color/colorPrimary"
+        app:itemIconTint="@color/nav_item_color"
+        app:itemTextColor="@color/nav_item_color"
+        app:menu="@menu/navigation">
+    </android.support.design.widget.BottomNavigationView>
 
+    <FrameLayout
+        android:id="@+id/profile_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/nav_bar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
 
-        <RadioGroup
-            android:id="@+id/radioGroup1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:baselineAligned="false"
-            android:gravity="center"
-            android:orientation="horizontal">
+    </FrameLayout>
 
-            <RadioButton
-                android:id="@+id/matching"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:button="@null"
-                android:checked="false"
-                android:gravity="center"
-                android:padding="2dp"
-                android:textSize="12sp" />
-
-            <RadioButton
-                android:id="@+id/watchList"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:button="@null"
-                android:checked="false"
-                android:gravity="center"
-                android:padding="2dp"
-                android:textSize="12sp" />
-
-            <RadioButton
-                android:id="@+id/rates"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:button="@null"
-                android:checked="false"
-                android:gravity="center"
-                android:paddingBottom="2dp"
-                android:paddingLeft="2dp"
-                android:paddingRight="2dp"
-                android:paddingTop="5dp"
-                android:textSize="12sp" />
-
-            <RadioButton
-                android:id="@+id/deals"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:button="@null"
-                android:checked="false"
-                android:gravity="center"
-                android:padding="2dp"
-                android:textSize="12sp" />
-
-        </RadioGroup>
-        </LinearLayout>
-
-            <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/dynamicContent"
-            android:orientation="vertical"
-            android:layout_marginBottom="56dp"
-            android:layout_gravity="bottom">
-            </LinearLayout>
-</FrameLayout>
+</RelativeLayout>
