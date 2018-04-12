@@ -8,7 +8,7 @@
     <item
         android:id="@+id/nav_Search"
         android:icon="@drawable/ic_search_black_24dp"
-        android:title="Explore"/>
+        android:title="@string/nav_Search" />
     <item
         android:id="@+id/nav_Workout"
         android:icon="@drawable/dumbbell"
@@ -17,8 +17,4 @@
         android:id="@+id/nav_Schedule"
         android:icon="@drawable/ic_date_range_black_24dp"
         android:title="@string/nav_Schedule" />
-    <item
-        android:id="@+id/nav_Map"
-        android:icon="@drawable/ic_pin_drop_black_24dp"
-        android:title="Nearest Gym" />
 </menu>

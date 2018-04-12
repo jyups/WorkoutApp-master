@@ -1,69 +1,78 @@
 package com.example.marc_.workoutapp;
 
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
+import android.view.MenuItem;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 
 public class Menu extends AppCompatActivity {
 
-    RadioGroup radioGroup1;
-    RadioButton deals;
+    private BottomNavigationView mMainNav;
+    private FrameLayout mMainFrame;
+
+    private Profile_Fragment profileFragment;
+    private Schedule_Fragment scheduleFragment;
+    private Search_Fragment searchFragment;
+    private Workout_Fragment workoutFragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-        this.finish();
 
+        mMainNav = (BottomNavigationView) findViewById(R.id.nav_bar);
+        mMainFrame = (FrameLayout) findViewById(R.id.nav_Profile);
 
-        radioGroup1=(RadioGroup)findViewById(R.id.radioGroup1);
-        deals = (RadioButton)findViewById(R.id.deals);
-        radioGroup1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
-        {
+        profileFragment = new Profile_Fragment();
+        scheduleFragment = new Schedule_Fragment();
+        searchFragment = new Search_Fragment();
+        workoutFragment = new Workout_Fragment();
+
+        setFragment(profileFragment);
+
+        mMainNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId)
-            {
-                Intent in;
-                Log.i("matching", "matching inside1 bro" + checkedId);
-                switch (checkedId)
-                {
-                    case R.id.matching:
-                        Log.i("matching", "matching inside1 matching" +  checkedId);
-                        in=new Intent(getBaseContext(),Profile_Fragment.class);
-                        startActivity(in);
-                        overridePendingTransition(0, 0);
-                        break;
-                    case R.id.watchList:
-                        Log.i("matching", "matching inside1 watchlistAdapter" + checkedId);
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-                        in = new Intent(getBaseContext(), Search_Fragment.class);
-                        startActivity(in);
-                        overridePendingTransition(0, 0);
+                switch (item.getItemId()){
+                    case R.id.nav_Profile:
+                        mMainNav.setItemBackgroundResource(R.color.colorPrimaryDark);
+                        setFragment(profileFragment);
+                        return true;
 
-                        break;
-                    case R.id.rates:
-                        Log.i("matching", "matching inside1 rate" + checkedId);
+                    case R.id.nav_Schedule:
+                        mMainNav.setItemBackgroundResource(R.color.colorPrimaryDark);
+                        setFragment(scheduleFragment);
+                        return true;
 
-                        in = new Intent(getBaseContext(),Workout_Fragment.class);
-                        startActivity(in);
-                        overridePendingTransition(0, 0);
-                        break;
-                    case R.id.listing:
-                        Log.i("matching", "matching inside1 listing" + checkedId);
-                        in = new Intent(getBaseContext(), Gym_Fragment.class);
-                        startActivity(in);
-                        overridePendingTransition(0, 0);
-                        break;
-                    default:
-                        break;
+                    case R.id.nav_Workout:
+                        mMainNav.setItemBackgroundResource(R.color.colorPrimaryDark);
+                        setFragment(workoutFragment);
+                        return true;
+
+                    case R.id.nav_Search:
+                        mMainNav.setItemBackgroundResource(R.color.colorPrimaryDark);
+                        setFragment(searchFragment);
+                        return true;
+
+                        default:
+                            return false;
                 }
             }
         });
+
+    }
+    private void setFragment(android.support.v4.app.Fragment fragment){
+        android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.profile_frame, fragment);
+        fragmentTransaction.commit();
+
     }
 }
